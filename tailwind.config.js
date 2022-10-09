@@ -21,7 +21,10 @@ module.exports = {
           100: "BBBBBB",
           200: "999EA9",
         },
-      }
+      },
+      fontFamily: {
+        body: ['Roboto', 'sans-serif'],
+      },
     }
   },
   plugins: [],

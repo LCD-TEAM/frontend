@@ -1,14 +1,8 @@
 import { createStore } from 'vuex';
+import RolesModule from '@/store/roles.module';
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+	modules: {
+		rolesModule: RolesModule,
+	}
 });

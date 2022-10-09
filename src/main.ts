@@ -9,6 +9,6 @@ import '@/assets/styles/fonts.css';
 import '@/assets/styles/normalize.css';
 
 app
-.use(store)
+.use(store, "store")
 .use(router)
 .mount('#app');

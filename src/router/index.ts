@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { RouteNamesEnum } from './router.types';
 import { AppLayoutsEnum } from '@/layouts/layouts.types';
 import { loadLayoutMiddleware } from './middleware/loadLayout.middleware';
+import { loadRolesMiddleware } from './middleware/loadRoles.middleware';
 
 
 const router = createRouter({
@@ -19,5 +20,6 @@ const router = createRouter({
 })
 
 router.beforeEach(loadLayoutMiddleware);
+router.beforeEach(loadRolesMiddleware);
 
 export default router;
