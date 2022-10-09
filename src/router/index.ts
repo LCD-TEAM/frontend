@@ -23,7 +23,12 @@ const router = createRouter({
       meta: {
         layout: AppLayoutsEnum.news,
       },
-    }
+    },
+    {
+      path: '/graph',
+      name: "graph",
+      component: () => import("@/components/graph/TheGraph.vue"),
+     }
   ]
 })
 

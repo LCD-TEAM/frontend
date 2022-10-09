@@ -1,8 +1,11 @@
 <template>
     <div class="news-digest">
+        <h2 class="news-digest__title">
+            {{ chosenRole  }}
+        </h2>
         <div class="news-digest__content">
             <ul class="news-digest__list">
-                <li class="news-digest__item" v-for="article in 3" :key="article.title">
+                <li class="news-digest__item" v-for="article in newsList" :key="article.title">
                     <news-card :article="article" />
                 </li>
             </ul>
@@ -12,7 +15,7 @@
 
 <script lang="ts">
 import axios from 'axios';
-import { defineComponent, computed, onMounted } from 'vue';
+import { defineComponent, computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 import NewsCard from './NewsCard.vue';
 
@@ -26,25 +29,28 @@ export default defineComponent({
             return store.state.rolesModule.chosenRole;
         });
 
-        // onMounted(async () => {
-        //     const response = await axios.get(`${process.env.VUE_APP_BACKEND_IP}:${process.env.VUE_APP_BACKEND_PORT}/news/role=${chosenRole.value}`);
-        //     const news = response.data;
+        const newsList = ref<any>([]);
 
-        //     console.log(news);
-        // });
+        onMounted(async () => {
+            const response = await axios.get(`${process.env.VUE_APP_BACKEND_IP}:${process.env.VUE_APP_BACKEND_PORT}/news/?role=${chosenRole.value}`);
+            const news = response.data;
+
+            newsList.value = news;
+        });
+
+        return { newsList, chosenRole };
     },
 });
 </script>
 
 <style lang="scss" scoped>
 .news-digest {
+    &__title {
+        @apply font-body font-bold m-0 mb-3 text-[22px] leading-[28px] text-vtb-accent-300;
+    }
+
     &__list {
-        @apply grid list-none p-0;
-        grid-template-columns: 625px 463px;
-        grid-template-rows: repeat(2, 172px);
-        grid-auto-flow: column-reverse;
-        list-style: none;
-        gap: 20px
+        @apply flex flex-col list-none gap-5 m-0 p-0;
     }
 
     &__item {

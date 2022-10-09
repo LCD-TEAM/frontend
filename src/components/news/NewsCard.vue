@@ -1,16 +1,16 @@
 <template>
     <div class="news-card">
         <h2 class="news-card__title">
-            Когда увольнение по соглашению сторон могут признать незаконным
+            {{ article.title }}
         </h2>
         <span class="news-card__tag">
-            Трудовые споры
+            {{ article.tags }}
         </span>
         <p class="news-card__content">
-            Выступая в суде против заявленных исковых требований, представитель работодателя ссылался на то, что увольнение по соглашению сторон нельзя оспаривать и обжаловать в судебном порядке. Основанием...
+            {{ article.content }}
         </p>
         <span class="news-card__date">
-            08/10/22 10:30
+            {{ article.date }}
         </span>
     </div>
 </template>
@@ -20,6 +20,12 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: "NewsCard",
+    props: {
+        article: {
+            type: Object,
+            required: true,
+        }
+    },
     setup() {
         
     },
@@ -39,7 +45,7 @@ export default defineComponent({
     }
 
     &__content {
-        @apply m-0 font-body font-medium text-base tracking-[0.5px] text-vtb-grey-100 overflow-hidden overflow-ellipsis max-h-[124px];
+        @apply m-0 font-body font-medium text-base tracking-[0.5px] text-vtb-grey-100 overflow-hidden overflow-ellipsis;
     }
 
     &__date {

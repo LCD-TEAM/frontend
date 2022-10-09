@@ -4,9 +4,6 @@
             <h1 class="news__title">
                 Все актуальные новости
             </h1>
-            <!-- <NewsFilterOverlay >
-                <NewsSphearesFilter />
-            </NewsFilterOverlay> -->
             <NewsDigest />
         </div>
     </div>
@@ -43,5 +40,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
+.news {
+    &__title {
+        @apply font-body font-bold m-0 mb-10 mt-10 text-[32px] leading-[40px] text-vtb-dark;
+    }
+}
 </style>
