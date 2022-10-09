@@ -18,8 +18,8 @@ module.exports = {
         },
         "vtb-dark": "#21242C",
         "vtb-grey": {
-          100: "BBBBBB",
-          200: "999EA9",
+          100: "#BBBBBB",
+          200: "#999EA9",
         },
       },
       fontFamily: {

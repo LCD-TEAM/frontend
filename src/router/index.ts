@@ -16,6 +16,14 @@ const router = createRouter({
         layout: AppLayoutsEnum.onBoard,
       }
     },
+    {
+      path: '/news',
+      name: RouteNamesEnum.news,
+      component: () => import("@/views/News.vue"),
+      meta: {
+        layout: AppLayoutsEnum.news,
+      },
+    }
   ]
 })
 

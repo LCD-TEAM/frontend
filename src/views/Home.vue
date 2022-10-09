@@ -2,7 +2,7 @@
     <div class="home">
         <div class="home__content">
             <RoleChoser class="home__role-choiser" :roles="roles"/>
-            <ForwardButton class="home__forward-button"/>
+            <ForwardButton class="home__forward-button" />
         </div>
     </div>
 </template>

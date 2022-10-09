@@ -23,7 +23,7 @@ const mutations = <MutationTree<State>> {
     },
     setChosenRole(state, role: string | null) {
         state.chosenRole = role;
-    }
+    },
 };
 
 const actions = <ActionTree<State, any>> {
@@ -37,7 +37,7 @@ const actions = <ActionTree<State, any>> {
         catch(err) {
             console.log(err);
         }
-    }
+    },
 };
 
 const RolesModule = {
